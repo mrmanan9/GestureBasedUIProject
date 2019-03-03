@@ -12,12 +12,17 @@ public class Runner extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 1L;
 	
 	public Runner() {
+		//this is the title of the jframe 
 		super("GUI Project");
+		// if the x is pressed then JFrame exits 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+        //the layout
         setLayout(null);
+        // the size of the canvas 
         setSize(770,652);
         
+        //displays the canvas
         setResizable(false);
         setVisible(true);
 	}
