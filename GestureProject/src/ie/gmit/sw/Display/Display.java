@@ -109,12 +109,15 @@ public class Display extends Canvas implements Runnable{
 		// a flicker also it doesnt take too many resources
 		do {
 			do {
-				
 				// this here sets the background color to black
 				Graphics2D g = (Graphics2D) bs.getDrawGraphics();
 				g.setColor(Color.BLACK);
-				g.fillRect(0, 0, 820,710);
-				
+				// file the whole jframe black 
+				// give it some extra height and width
+				g.fillRect(0, 0, 825,710);
+			
+				// dispose when done 
+				g.dispose();
 				
 			} while (bs.contentsRestored());
 			//shows the current thing that was drawn 
