@@ -86,6 +86,14 @@ public class Display extends Canvas implements Runnable{
 		//make a counter so it prints the game is running 
 		// after 1000 times
 		int counter = 0;
+		int FPS;
+		
+		//get the current time 
+		long timer = System.currentTimeMillis();
+		long lastLoopTime = System.nanoTime();
+		final int TARGET_FPS = 60;
+		final long OPTIMAL_TIME = 1000000000 / TARGET_FPS;
+		int frames = 0;
 		
 		//create createBufferStrategy to start drawing the game 
 		this.createBufferStrategy(3);
@@ -93,8 +101,31 @@ public class Display extends Canvas implements Runnable{
 
 		while(running) {
 			
+			// this here is to change the sprite fps
+			long now = System.nanoTime();
+			long updateLength = now - lastLoopTime;
+			lastLoopTime = now;
+			double delta = updateLength / ((double) OPTIMAL_TIME);
+			
+			//update the frame 
+			frames++;
+			
+			if (System.currentTimeMillis() - timer > 1000) {
+				timer += 1000;
+				FPS = frames;
+				frames = 0;
+				System.out.println(FPS);
+			}
+			
 			// call the draw method 
 			draw(bs);
+			update(delta);
+			
+			try {
+				Thread.sleep(((lastLoopTime - System.nanoTime()) + OPTIMAL_TIME) / 1000000);
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 			
 			counter++;
 			if(counter == 1000) {
@@ -123,5 +154,10 @@ public class Display extends Canvas implements Runnable{
 			//shows the current thing that was drawn 
 			bs.show();
 		}  while (bs.contentsLost());	
+	}
+	
+	// this will change the position from the update 
+	public void update(double delta) {
+		
 	}
 }
