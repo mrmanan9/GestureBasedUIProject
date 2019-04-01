@@ -1,4 +1,4 @@
-package ie.gmit.sw.Display;
+package ie.gmit.sw;
 
 import java.awt.Canvas;
 import java.awt.Color;
