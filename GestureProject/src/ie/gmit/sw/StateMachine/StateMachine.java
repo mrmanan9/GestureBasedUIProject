@@ -4,6 +4,8 @@ import java.awt.Canvas;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
+import ie.gmit.sw.Screen.GameScreen;
+
 public class StateMachine {
 	
 	//arraylist
@@ -13,6 +15,11 @@ public class StateMachine {
 	private byte selectState = 0;
 	
 	public StateMachine(Canvas canvas) {
+		// this is the first index 
+		// this will be the first thing that displays 
+		Statator game = new GameScreen();
+		states.add(game);
+		
 		//assign canvas 
 		this.canvas = canvas;
 	}
