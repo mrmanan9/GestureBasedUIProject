@@ -7,6 +7,8 @@ import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
+import ie.gmit.sw.StateMachine.StateMachine;
+
 public class Display extends Canvas implements Runnable{
 
 	// variables 
@@ -15,6 +17,14 @@ public class Display extends Canvas implements Runnable{
 	//Thread
 	private boolean running = false;
 	private Thread thread;
+	
+	//state machine
+	public static StateMachine state;
+	
+	public Display() {
+		state = new StateMachine(this);
+		state.setState((byte)0);
+	}
 
 	//displays and where the program first starts 
 	public static void main(String[] args) {
@@ -147,6 +157,9 @@ public class Display extends Canvas implements Runnable{
 				// give it some extra height and width
 				g.fillRect(0, 0, 825,710);
 			
+				//state machine draw 
+				state.draw(g);
+				
 				// dispose when done 
 				g.dispose();
 				
@@ -158,6 +171,6 @@ public class Display extends Canvas implements Runnable{
 	
 	// this will change the position from the update 
 	public void update(double delta) {
-		
+		state.update(delta);
 	}
 }
