@@ -32,6 +32,10 @@ public class Sprite {
 	
 	//draw 
 	public void draw(Graphics2D g) {
+		//checks if the sprite is destroyed then returns 
+		if (isSpriteAnimDestroyed())
+			return;
+		//otherwise it draws it 
 		//draw sprite 
 		g.drawImage(sprites.get(currentSprite), (int) getXpos(), (int) getYpos(), null);
 	}
@@ -75,7 +79,7 @@ public class Sprite {
 	
 	private void loopAnimation() {
 		if (timer.isTimerReady(speed) && currentSprite != limit) {
-			currentSprite = 0;
+			currentSprite = 0;//resets the animation 
 			timer.resetTimer();
 		}else if (timer.timerEvent(speed) && currentSprite != limit) {
 			currentSprite++;
@@ -85,7 +89,7 @@ public class Sprite {
 	private void playAnimation() {
 		if (timer.isTimerReady(speed) && currentSprite != limit && !isDestoryAfterAnim()) {
 			play = false;
-			currentSprite = 0;
+			currentSprite = 0; //resets the animation 
 		} else if (timer.isTimerReady(speed) && currentSprite == limit && isDestoryAfterAnim()) {
 			sprites = null;
 		}else if (timer.timerEvent(speed) && currentSprite != limit) {
@@ -100,7 +104,7 @@ public class Sprite {
 
 		return false;
 	}
-	
+	//checks 
 	public boolean isDestoryAfterAnim() {
 		return destoryAfterAnim;
 	}
@@ -109,9 +113,25 @@ public class Sprite {
 	public double getXpos() {
 		return xpos;
 	}
-
+	
 	public void setXpos(double xpos) {
 		this.xpos = xpos;
+	}
+
+	public boolean isLoop() {
+		return loop;
+	}
+
+	public void setLoop(boolean loop) {
+		this.loop = loop;
+	}
+
+	public byte getCurrentSprite() {
+		return currentSprite;
+	}
+
+	public void setCurrentSprite(byte currentSprite) {
+		this.currentSprite = currentSprite;
 	}
 
 	public double getYpos() {
@@ -121,8 +141,4 @@ public class Sprite {
 	public void setYpos(double ypos) {
 		this.ypos = ypos;
 	}
-	
-	
-	
-
 }
