@@ -22,6 +22,11 @@ public class Player implements KeyListener{
 	//rectangle
 	private Rectangle rect;
 	
+	// this is for movement and shooting
+	private boolean left = false;
+	private boolean	right = false;
+	private boolean	shoot = false;
+	
 	//constructor 
 	public Player(double xpos, double ypos, int width, int height) {
 		this.xpos = xpos;
@@ -52,8 +57,19 @@ public class Player implements KeyListener{
 
 	@Override
 	public void keyPressed(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
+		//get the key value from user 
+		int key = arg0.getKeyCode();
+		// if the right key is pressed the right = true
+		if(key == KeyEvent.VK_D || key == KeyEvent.VK_RIGHT){
+			right = true;
+			// if the left key is pressed then left is true 
+		}else if (key == KeyEvent.VK_A || key == KeyEvent.VK_LEFT){
+			left = true;
+		}
+		// space for shooting 
+		if (key == KeyEvent.VK_SPACE){
+			shoot = true;
+		}
 	}
 
 	@Override
