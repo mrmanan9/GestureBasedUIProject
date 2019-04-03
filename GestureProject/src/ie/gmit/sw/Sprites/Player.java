@@ -12,6 +12,9 @@ import javax.imageio.ImageIO;
 
 public class Player implements KeyListener{
 	
+	//speed of the cannon 
+	private final double speed = 5.0d;
+	
 	// player sprite 
 	private BufferedImage player;
 	
@@ -53,6 +56,14 @@ public class Player implements KeyListener{
 	
 	public void update(double delta){
 		
+		if(right && !left){
+			xpos += speed * delta;
+			rect.x = (int) xpos;
+		}if(!right && left && xpos > 10){
+			xpos -= speed * delta;
+			rect.x = (int) xpos;
+		}
+		
 	}
 
 	@Override
@@ -75,7 +86,18 @@ public class Player implements KeyListener{
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		int key = arg0.getKeyCode();
+		//when the right key is released right is false 
+		if(key == KeyEvent.VK_D || key == KeyEvent.VK_RIGHT){
+			right = false;
+		//when the left key is released left is false 
+		}else if (key == KeyEvent.VK_A || key == KeyEvent.VK_LEFT){
+			left = false;
+		}
+		//space released shotting stops 
+		if (key == KeyEvent.VK_SPACE){
+			shoot = false;
+		}
 	}
 
 	@Override
