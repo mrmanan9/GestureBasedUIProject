@@ -69,7 +69,7 @@ public class Sprite {
 	private void playAnimation() {
 	
 	}
-	
+	//changes
 	public boolean isSpriteAnimDestroyed() {
 		if (sprites == null)
 			return true;
