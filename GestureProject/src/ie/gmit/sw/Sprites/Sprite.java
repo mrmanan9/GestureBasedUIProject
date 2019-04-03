@@ -14,6 +14,8 @@ public class Sprite {
 	private boolean loop = false;
 	private boolean play = false;
 	private boolean destoryAfterAnim = false;
+	private Timer timer;
+	private int limit;
 	
 	//buffered image
 	private ArrayList<BufferedImage> sprites = new ArrayList<BufferedImage>();
@@ -35,6 +37,15 @@ public class Sprite {
 	}
 	//update 
 	public void update(double delta) {
+		//if sprite is destroyed then 
+		// finish this method 
+		if (isSpriteAnimDestroyed())
+			return;
+		//if not the finish the method
+		if (loop && !play)
+			loopAnimation();
+		if (play && !loop)
+			playAnimation();
 		
 	}
 	
@@ -63,18 +74,35 @@ public class Sprite {
 	}
 	
 	private void loopAnimation() {
-		
+		if (timer.isTimerReady(speed) && currentSprite != limit) {
+			currentSprite = 0;
+			timer.resetTimer();
+		}else if (timer.timerEvent(speed) && currentSprite != limit) {
+			currentSprite++;
+		} 
 	}
 	
 	private void playAnimation() {
+		if (timer.isTimerReady(speed) && currentSprite != limit && !isDestoryAfterAnim()) {
+			play = false;
+			currentSprite = 0;
+		} else if (timer.isTimerReady(speed) && currentSprite == limit && isDestoryAfterAnim()) {
+			sprites = null;
+		}else if (timer.timerEvent(speed) && currentSprite != limit) {
+			currentSprite++;
+		}
 	
 	}
-	//changes
+	//checks if the sprite animation is destroyed 
 	public boolean isSpriteAnimDestroyed() {
 		if (sprites == null)
 			return true;
 
 		return false;
+	}
+	
+	public boolean isDestoryAfterAnim() {
+		return destoryAfterAnim;
 	}
 	
 	//getteres and setters 
