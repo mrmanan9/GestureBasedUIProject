@@ -32,9 +32,7 @@ public class CannonBullet {
 	}
 	
 	public void shootBullet(double xPos, double yPos, int width, int height){
-		if(timer.timerEvent(250)) {
-			weapons.add(new Gun(xPos + 22, yPos + 15, width, height));
-		}
+		weapons.add(new Gun(xPos + 22, yPos + 15, width, height));
 	}
 
 }

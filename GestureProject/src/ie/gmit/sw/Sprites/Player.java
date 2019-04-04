@@ -6,11 +6,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.net.URL;
 
 import javax.imageio.ImageIO;
 
-import ie.gmit.sw.Display;
+import ie.gmit.sw.Bullets.CannonBullet;
 
 public class Player implements KeyListener{
 	
@@ -32,8 +31,12 @@ public class Player implements KeyListener{
 	private boolean	right = false;
 	private boolean	shoot = false;
 	
+	//bullet 
+	public CannonBullet bullet;
+	private Blocks block;
+	
 	//constructor 
-	public Player(double xpos, double ypos, int width, int height) {
+	public Player(double xpos, double ypos, int width, int height, Blocks block) {
 		this.xpos = xpos;
 		this.ypos = ypos;
 		this.height = height;
@@ -48,12 +51,18 @@ public class Player implements KeyListener{
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+		
+		//instanisate block
+		this.block = block;
+		//intialise bullet 
+		bullet = new CannonBullet();
 	}
 	
 	//draw the image here 
 	public void draw(Graphics2D g) {
 		// draw cannon //at the positions given
 		g.drawImage(player,(int) xpos,(int) ypos, width, height, null);
+		bullet.draw(g);
 	}
 	
 	public void update(double delta){
@@ -66,6 +75,12 @@ public class Player implements KeyListener{
 		}if(!right && left && xpos > 10){
 			xpos -= speed * delta;
 			rect.x = (int) xpos;
+		}
+		
+		bullet.update(delta, block);
+		//update the bullet when shooting 
+		if(shoot){
+			bullet.shootBullet(xpos, ypos, 5, 5);
 		}
 	}
 
