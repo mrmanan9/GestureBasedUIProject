@@ -80,7 +80,7 @@ public class Player implements KeyListener{
 		bullet.update(delta, block);
 		//update the bullet when shooting 
 		if(shoot){
-			bullet.shootBullet(xpos, ypos, 5, 5);
+			bullet.shootBullet(xpos, ypos, 10, 10);
 		}
 	}
 
