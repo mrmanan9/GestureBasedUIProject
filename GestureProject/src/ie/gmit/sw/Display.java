@@ -50,7 +50,7 @@ public class Display extends Canvas implements Runnable{
 
 		//the layout
 		//frame.setLayout(null);
-		// the size of the canvas 
+		// the size of the canvas //width and height
 		frame.setSize(770,652);
 		
 		//start the thread

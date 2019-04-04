@@ -10,6 +10,8 @@ import java.net.URL;
 
 import javax.imageio.ImageIO;
 
+import ie.gmit.sw.Display;
+
 public class Player implements KeyListener{
 	
 	//speed of the cannon 
@@ -55,15 +57,16 @@ public class Player implements KeyListener{
 	}
 	
 	public void update(double delta){
-		
-		if(right && !left){
+		//770 is the width of the canvas 
+		// turn right if the right key is pressed 
+		if(right && !left && xpos < 748 - width){
 			xpos += speed * delta;
 			rect.x = (int) xpos;
+		// turn left if the left key is pressed 
 		}if(!right && left && xpos > 10){
 			xpos -= speed * delta;
 			rect.x = (int) xpos;
 		}
-		
 	}
 
 	@Override
