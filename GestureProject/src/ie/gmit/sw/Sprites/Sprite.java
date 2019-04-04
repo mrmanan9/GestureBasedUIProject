@@ -16,6 +16,8 @@ public class Sprite {
 	private boolean destoryAfterAnim = false;
 	private Timer timer;
 	private int limit;
+	private int width;
+	private int height;
 	
 	//buffered image
 	private ArrayList<BufferedImage> sprites = new ArrayList<BufferedImage>();
@@ -24,10 +26,17 @@ public class Sprite {
 	
 	// x and y position of the sprite on the screen
 	// speed var is for the speed on the screen
-	public Sprite(double xpos, double ypos, int speed) {
+	public Sprite(double xpos, double ypos,int width, int height, int speed) {
 		this.xpos = xpos;
 		this.ypos = ypos;
 		this.speed = speed;
+		
+		//timer
+		timer = new Timer();
+		
+		//width and height
+		this.width = width;
+		this.height = height;
 	}
 	
 	//draw 
@@ -37,7 +46,7 @@ public class Sprite {
 			return;
 		//otherwise it draws it 
 		//draw sprite 
-		g.drawImage(sprites.get(currentSprite), (int) getXpos(), (int) getYpos(), null);
+		g.drawImage(sprites.get(currentSprite), (int) getXpos(), (int) getYpos(),width, height, null);
 	}
 	//update 
 	public void update(double delta) {

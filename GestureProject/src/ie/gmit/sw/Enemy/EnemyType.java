@@ -13,6 +13,6 @@ public interface EnemyType {
 	public abstract void changeDirection(double delta);
 	
 	public abstract boolean deathScene();
-	public abstract boolean collide(int i, Player player, Blocks blocks, ArrayList<EnemyType> enemys);
+	public abstract boolean collide(int i, Player player, Blocks blocks, ArrayList<EnemyType> enemies);
 	public abstract boolean isOutOfBounds();
 }
