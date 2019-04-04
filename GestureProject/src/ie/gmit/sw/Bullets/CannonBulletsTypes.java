@@ -1,4 +1,4 @@
-package ie.gmit.sw.Bullet;
+package ie.gmit.sw.Bullets;
 
 import java.awt.Graphics2D;
 import java.awt.Polygon;
@@ -6,7 +6,7 @@ import java.awt.Rectangle;
 
 import ie.gmit.sw.Sprites.Blocks;
 
-public abstract class CannonBullets {
+public abstract class CannonBulletsTypes {
 	
 	//variable 
 	//position and width and height 
