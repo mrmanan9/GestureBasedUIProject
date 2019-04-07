@@ -44,6 +44,9 @@ public class Listener extends JPanel implements KeyListener {
     private boolean restartGame = false; 
 
     private Color pOverlay = new Color(0, 0, 0, 200);
+   
+    //start again 
+    private boolean startAgain = false; 
 
     // fonts 
  	private Font fontL = new Font ("TimesRoman", Font.TRUETYPE_FONT | Font.ITALIC, 150);
@@ -136,6 +139,10 @@ public class Listener extends JPanel implements KeyListener {
     public boolean isPaused(){
         return paused;
     }
+    
+    public boolean setPaused(boolean p) {
+    	return this.paused = p;
+    }
 
     public boolean doRestartGame(){
         return restartGame;
@@ -171,16 +178,22 @@ public class Listener extends JPanel implements KeyListener {
             shield.draw(g);
             ship.draw(g);
             shotsFired.draw(g);
-               enemies.draw(g);
+            enemies.draw(g);
         }
         else {
         	// when game is over
             gameOverOverlay(g);
+          
         }
 
         if (paused){
             pauseOverlay(g);
         }
     }
+
+	public boolean setStartAgain(boolean b) {
+		
+		return b;		
+	}
 
 }

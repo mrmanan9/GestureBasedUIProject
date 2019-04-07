@@ -8,13 +8,11 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.beans.PropertyChangeListener;
 import java.io.IOException;
 
 import javax.swing.JPanel;
 
 import ie.gmit.sw.Enemy.Enemy;
-import voce.SpeechInterface;
 
 // JPanel containing the main menu
 public class MainMenu extends JPanel implements KeyListener {
@@ -25,6 +23,11 @@ public class MainMenu extends JPanel implements KeyListener {
 	private boolean startGame = false;
 	private long score = 0;
 
+	private Color pOverlay = new Color(0, 0, 0, 200);
+	// flag for when user pauses/unpauses game
+	private boolean paused = false; 
+	private boolean startAgain = false; 
+
 	// for flipping 
 	private int beatCount = 0;
 	private int beat = 0;
@@ -34,11 +37,14 @@ public class MainMenu extends JPanel implements KeyListener {
 	private Font fontL = new Font ("TimesRoman", Font.TRUETYPE_FONT | Font.ITALIC, 80);
 	private Font fontM = new Font ("TimesRoman", Font.TRUETYPE_FONT | Font.ITALIC, 60);
 
+	private Font fontS = new Font ("TimesRoman", Font.TRUETYPE_FONT | Font.ITALIC, 40);
+
+
 	//main menu 
 	public MainMenu() throws IOException, FontFormatException{
 		super();
 		voce.SpeechInterface.init("./resources", false, true, 
-				"./resources", "digits");
+				"./resources", "start");
 		setSize(800,700);
 		addKeyListener(this);
 
@@ -51,6 +57,20 @@ public class MainMenu extends JPanel implements KeyListener {
 
 	public boolean getStatus(){
 		return startGame;
+	}
+
+	public boolean getPauseStatus(){
+		return paused;
+	}
+	
+	public boolean startOver() {
+		// TODO Auto-generated method stub
+		return startAgain;
+	}
+	//reset the start game boolean to false after restarting 
+	public void setStartOver(boolean b) {
+		// TODO Auto-generated method stub
+		this.startAgain = b;
 	}
 
 	public void setHiScore(long getScore) { score = getScore; }
@@ -69,10 +89,10 @@ public class MainMenu extends JPanel implements KeyListener {
 			startGame = true;
 		}
 	}
-	
-	
+
+	// for startint the game and quiting the menu 
 	public void sppech() {
-		
+
 		System.out.println("Say Start!");
 
 		boolean start = false;
@@ -90,28 +110,36 @@ public class MainMenu extends JPanel implements KeyListener {
 			while (voce.SpeechInterface.getRecognizerQueueSize() > 0)
 			{
 				String s = voce.SpeechInterface.popRecognizedString();
-				
-				System.out.println(s);
 
-				// Check if the string contains 'quit'.
-				if (-1 != s.indexOf("start"))
-				{
-					start = true;
+				//check if s is equal to start 
+				if(s.contentEquals("start")) {
+					// if it is then end the loop 
+					//					start = true;
+					//start the game 
 					startGame = true;
 				}
-
+				else if(s.contentEquals("stop")) {
+					paused = true;
+				}
+				else if(s.contentEquals("resume")) {
+					paused = false;
+				}
+				else if(s.contentEquals("reset")) {
+					startAgain = true;
+				}
+				else{
+					s = "empty";
+				}
 				System.out.println("You said: " + s);
-				//voce.SpeechInterface.synthesize(s);
 			}
 
 		}
-		
+
 		voce.SpeechInterface.destroy();
-		
+
 	}
 
 	public void paintComponent(Graphics g){
-		
 		//this counts how many times looped 
 		beatCount += 1;
 
@@ -163,6 +191,6 @@ public class MainMenu extends JPanel implements KeyListener {
 
 		// other text 
 		comp2D.drawString("Say Start",250,420);
-		
+
 	}
 }

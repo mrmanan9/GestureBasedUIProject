@@ -22,9 +22,14 @@ public class Runner extends JFrame implements ActionListener{
 	// first JPanel
 	private static MainMenu menu; 
 	private boolean gameStart = false;
+	
+	//check if game is paused 
+	private boolean paused = false;
+	//start again
+	private boolean startAgain;
 
 	// component classes of the game
-	private Listener overseer;
+	private static Listener overseer;
 	private Player player;
 	private AlienMan enemies;
 	private Scorekeeper score;
@@ -45,10 +50,8 @@ public class Runner extends JFrame implements ActionListener{
 
 		menu.setHiScore(score.getHiScore());
 
+		//add menu to the jfrmae 
 		add(menu);
-
-//		voce.SpeechInterface.destroy();
-//		System.exit(0);
 
 		myTimer = new javax.swing.Timer(10,this); // update every 10 ms
 		myTimer.start();
@@ -57,7 +60,8 @@ public class Runner extends JFrame implements ActionListener{
 		setVisible(true);
 	}
 
-	private void nextLevel() throws IOException, FontFormatException { // called every time user wins (all aliens destroyed), resets game setup
+	private void nextLevel() throws IOException, FontFormatException { 
+		// called every time user wins (all aliens destroyed), resets game setup
 		remove(overseer);
 		if (wave < 10){
 			wave += 1;
@@ -87,10 +91,15 @@ public class Runner extends JFrame implements ActionListener{
 	}
 
 	public void actionPerformed(ActionEvent evt){ // event listener stuff, update classes every 10 ms
+	
 		Object source = evt.getSource();
+		//check if paasued or not
+		paused = menu.getPauseStatus();
+		
 		if(source == myTimer){
 			if (gameStart) {
-				if (overseer.stillPlaying() && !overseer.isPaused() && !player.gotHit()) { // only move when not paused and player still alive
+				if (overseer.stillPlaying() && !overseer.isPaused() && !player.gotHit()) { 
+					// only move when not paused and player still alive
 					overseer.move(); // move player
 					if (enemies.metronome()) { // if aliens have moved
 						shotsFired.setAlienShots(enemies.attack()); // launch attack
@@ -100,8 +109,25 @@ public class Runner extends JFrame implements ActionListener{
 				}
 
 				if (!overseer.stillPlaying()) {
+					
+					// start again
+					startAgain = menu.startOver();
+					
+					//delete everything
 					enemies.ufoDestroy();
 					score.calculateHiScore();
+					
+					//start again
+					if(startAgain) {
+						try {
+							startOverGame();
+							menu.setStartOver(false);
+						} catch (IOException | FontFormatException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+					
 				}
 
 				overseer.repaint();
@@ -127,6 +153,17 @@ public class Runner extends JFrame implements ActionListener{
 						e.printStackTrace();
 					}
 				}
+				
+				// this here pasues the game but atm moment its very buggy 
+				// unpause this for the pasue menu 
+				if(paused) {
+					overseer.setPaused(true);
+					overseer.repaint();
+				}
+				if(!paused) {
+					overseer.setPaused(false);
+					overseer.repaint();
+				}
 			}
 			else {
 				gameStart = menu.getStatus();
@@ -142,14 +179,18 @@ public class Runner extends JFrame implements ActionListener{
 						e.printStackTrace();
 					}
 				}
+				
 				menu.repaint();
 			}
+			
 		}
 	}
 
 	public static void main(String[]args) throws IOException, FontFormatException{
 		new Runner();
-		
+
+		// run the speech recognition to start the game 
 		menu.sppech();
+
 	}
 }
