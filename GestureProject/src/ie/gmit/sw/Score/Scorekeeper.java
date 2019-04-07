@@ -59,7 +59,7 @@ public class Scorekeeper{
         try {
             if (score > hiScore){
                 highScore.delete();
-                highScore = new File("src/hiscore.txt");
+                highScore = new File("src/score.txt");
                 outFile = new BufferedWriter(new FileWriter(highScore,false));
                 outFile.write(String.valueOf(score));
                 outFile.close();

@@ -8,17 +8,19 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.beans.PropertyChangeListener;
 import java.io.IOException;
 
 import javax.swing.JPanel;
 
 import ie.gmit.sw.Enemy.Enemy;
+import voce.SpeechInterface;
 
 // JPanel containing the main menu
 public class MainMenu extends JPanel implements KeyListener {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	//variables 
 	private boolean startGame = false;
 	private long score = 0;
@@ -35,8 +37,11 @@ public class MainMenu extends JPanel implements KeyListener {
 	//main menu 
 	public MainMenu() throws IOException, FontFormatException{
 		super();
+		voce.SpeechInterface.init("./resources", false, true, 
+				"./resources", "digits");
 		setSize(800,700);
 		addKeyListener(this);
+
 	}
 
 	public void addNotify(){
@@ -64,8 +69,49 @@ public class MainMenu extends JPanel implements KeyListener {
 			startGame = true;
 		}
 	}
+	
+	
+	public void sppech() {
+		
+		System.out.println("Say Start!");
+
+		boolean start = false;
+		while (!start)
+		{
+			// Normally, applications would do application-specific things 
+			// here.  For this sample, we'll just sleep for a little bit.
+			try
+			{
+				Thread.sleep(100);
+			}
+			catch (InterruptedException e)
+			{
+			}
+			while (voce.SpeechInterface.getRecognizerQueueSize() > 0)
+			{
+				String s = voce.SpeechInterface.popRecognizedString();
+				
+				System.out.println(s);
+
+				// Check if the string contains 'quit'.
+				if (-1 != s.indexOf("start"))
+				{
+					start = true;
+					startGame = true;
+				}
+
+				System.out.println("You said: " + s);
+				//voce.SpeechInterface.synthesize(s);
+			}
+
+		}
+		
+		voce.SpeechInterface.destroy();
+		
+	}
 
 	public void paintComponent(Graphics g){
+		
 		//this counts how many times looped 
 		beatCount += 1;
 
@@ -114,11 +160,9 @@ public class MainMenu extends JPanel implements KeyListener {
 			//Separate the image by multiplying the x-axis by 120 to separate them
 			g.drawImage(alien, posX + ( i*120), posY, c, null);
 		}
-		
+
 		// other text 
 		comp2D.drawString("Say Start",250,420);
-
-
-
+		
 	}
 }
