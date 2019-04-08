@@ -14,19 +14,19 @@ public class SoundMan {
     // gets a preset name from somewhere in the program then passes the proper WAV file path to musicPlayer()
     public static Clip play(String name) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         if (Arrays.asList(numList).contains(name)){
-            return musicPlayer("sounds/beat" + name + ".wav");
+            return musicPlayer("resources/sounds/beat" + name + ".wav");
         }
         else if (name.equals("playerShoot")){
-            return musicPlayer("sounds/playerShoot.wav");
+            return musicPlayer("resources/sounds/playerShoot.wav");
         }
         else if (name.equals("alienShot")){
-            return musicPlayer("sounds/alienShot.wav");
+            return musicPlayer("resources/sounds/alienShot.wav");
         }
         else if (name.equals("ufo")){
-            return musicPlayer("sounds/ufo.wav");
+            return musicPlayer("resources/sounds/ufo.wav");
         }
         else if (name.equals("playerDown")){
-            return musicPlayer("sounds/playerDown.wav");
+            return musicPlayer("resources/sounds/playerDown.wav");
         }
         else {
             return null;

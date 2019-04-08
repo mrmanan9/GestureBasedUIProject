@@ -17,27 +17,27 @@ public class Enemy{
 
     public Enemy(int type,int posX,int posY){
         if(type == 1){ // top level
-            imgOne = new ImageIcon("Images/alien.png").getImage();
-            imgTwo = new ImageIcon("Images/alien1Img2.png").getImage();
+            imgOne = new ImageIcon("resources/Images/alien.png").getImage();
+            imgTwo = new ImageIcon("resources/Images/alien1Img2.png").getImage();
             xSize = 24;
             points = 30;
         }
         if(type == 2){ // 2nd and 3rd level
-            imgOne = new ImageIcon("Images/alien2.png").getImage();
-            imgTwo = new ImageIcon("Images/alien2Img2.png").getImage();
+            imgOne = new ImageIcon("resources/Images/alien2.png").getImage();
+            imgTwo = new ImageIcon("resources/Images/alien2Img2.png").getImage();
             xSize = 33;
             points = 20;
         }
         if(type == 3){ // 4th and 5th level
-            imgOne = new ImageIcon("Images/alien3.png").getImage();
-            imgTwo = new ImageIcon("Images/alien3Img2.png").getImage();
+            imgOne = new ImageIcon("resources/Images/alien3.png").getImage();
+            imgTwo = new ImageIcon("resources/Images/alien3Img2.png").getImage();
             xSize = 37;
             points = 10;
         }
         if(type == 4){ // red UFO
             Random coin = new Random(); // used to randomly determine alien point value
             int posPoints[] = {50,100,150};
-            imgOne = imgTwo = new ImageIcon("Images/redAlien.png").getImage();
+            imgOne = imgTwo = new ImageIcon("resources/Images/redAlien.png").getImage();
             xSize = 51;
             points = posPoints[coin.nextInt(3)];
         }

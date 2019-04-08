@@ -31,7 +31,7 @@ public class Scorekeeper{
     private BufferedWriter outFile;
 
     public Scorekeeper() throws IOException, FontFormatException {
-        highScore = new File("src/score.txt"); // get hi score
+        highScore = new File("resources/score.txt"); // get hi score
         inFile = new BufferedReader(new FileReader(highScore));
         try{
             hiScore = Long.parseLong(inFile.readLine(),10);
@@ -59,7 +59,7 @@ public class Scorekeeper{
         try {
             if (score > hiScore){
                 highScore.delete();
-                highScore = new File("src/score.txt");
+                highScore = new File("resources/score.txt");
                 outFile = new BufferedWriter(new FileWriter(highScore,false));
                 outFile.write(String.valueOf(score));
                 outFile.close();

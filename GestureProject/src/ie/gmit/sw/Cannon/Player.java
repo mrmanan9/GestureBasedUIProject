@@ -19,9 +19,9 @@ public class Player{
     private int lives = 3; // amount of lives before game over
     private Rectangle rectCannon = new Rectangle(pos-12,570,38,25); // rectangle used for collision
 
-    private Image imgShip = new ImageIcon("Images/cannon1.png").getImage(); // picture of ship
-    private Image shipDown0 = new ImageIcon("Images/shipBroke1.png").getImage(); // broken ships
-    private Image shipDown1 = new ImageIcon("Images/shipBroke2.png").getImage();
+    private Image imgShip = new ImageIcon("resources/Images/cannon1.png").getImage(); // picture of ship
+    private Image shipDown0 = new ImageIcon("resources/Images/shipBroke1.png").getImage(); // broken ships
+    private Image shipDown1 = new ImageIcon("resources/Images/shipBroke2.png").getImage();
     private int curImage = 0; // determines which broken image will be displayed
 
     private boolean gotShot = false; // flag to determine if user has been hit
