@@ -102,7 +102,7 @@ public class MainMenu extends JPanel implements KeyListener {
 			// here.  For this sample, we'll just sleep for a little bit.
 			try
 			{
-				Thread.sleep(100);
+				Thread.sleep(300);
 			}
 			catch (InterruptedException e)
 			{
@@ -121,7 +121,7 @@ public class MainMenu extends JPanel implements KeyListener {
 				else if(s.contentEquals("stop")) {
 					paused = true;
 				}
-				else if(s.contentEquals("resume")) {
+				else if(s.contentEquals("continue")) {
 					paused = false;
 				}
 				else if(s.contentEquals("reset")) {

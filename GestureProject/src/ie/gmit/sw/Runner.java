@@ -120,8 +120,8 @@ public class Runner extends JFrame implements ActionListener{
 					//start again
 					if(startAgain) {
 						try {
-							startOverGame();
 							menu.setStartOver(false);
+							startOverGame();
 						} catch (IOException | FontFormatException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();

@@ -6,5 +6,5 @@
 
 grammar start;
 
-public <String> = [start | reset | stop | resume | nothing];
+public <String> = [start | reset | stop | continue | nothing];
 
