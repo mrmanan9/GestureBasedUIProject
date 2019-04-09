@@ -184,20 +184,24 @@ public void sppech() {
       //check if s is equal to start 
       if(s.contentEquals("start")) {
         // if it is then end the loop 
-        //					start = true;
-        //start the game 
+        // start = true;
+        // start the game 
         startGame = true;
       }
+      // when the user says stop the game pauses
       else if(s.contentEquals("stop")) {
         paused = true;
       }
+      // when the user says continue the game resumes 
       else if(s.contentEquals("continue")) {
         paused = false;
       }
+      // when the games ends the user can reset it 
       else if(s.contentEquals("reset")) {
         startAgain = true;
       }
       else{
+        // if not one of the above its assigned empty 
         s = "empty";
       }
       System.out.println("You said: " + s);
