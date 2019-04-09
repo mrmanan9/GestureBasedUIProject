@@ -84,6 +84,12 @@ We decide to use the fist gesture to shoot. We began with  using the finger spre
 
 We decided to use the rotate gestures for left and right movement. We initially had the wave-in and wave-out for moving right and left. Later on we found out that it was a bit tiresome and not as effcient so we decided to change this to the rotate. This does not require as much movement and stamina. 
 
+### Hardware used in creating the application
+
+### Architecture for the solution
+
+### Conclusions & Recommendations
+
 ### Team Members
 Naqi Ahmad
 Nuzhafiq Iqbal 
