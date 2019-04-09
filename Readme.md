@@ -156,6 +156,67 @@ In the script we have a function that when called presses the spacebar key. We a
 
 The same applies to Rotate Left and Right the functions map the gestures to the keyboard keys. So When the user uses the rotate left gesture the lua script maps that to the left key and presses it down. 
 
+
+#### Voice Recognition
+
+```java
+// for startint the game and quiting the menu 
+public void sppech() {
+
+  System.out.println("Say Start!");
+
+  boolean start = false;
+  while (!start)
+  {
+    // Normally, applications would do application-specific things 
+    // here.  For this sample, we'll just sleep for a little bit.
+    try
+    {
+      Thread.sleep(300);
+    }
+    catch (InterruptedException e)
+    {
+    }
+    while (voce.SpeechInterface.getRecognizerQueueSize() > 0)
+    {
+      String s = voce.SpeechInterface.popRecognizedString();
+
+      //check if s is equal to start 
+      if(s.contentEquals("start")) {
+        // if it is then end the loop 
+        //					start = true;
+        //start the game 
+        startGame = true;
+      }
+      else if(s.contentEquals("stop")) {
+        paused = true;
+      }
+      else if(s.contentEquals("continue")) {
+        paused = false;
+      }
+      else if(s.contentEquals("reset")) {
+        startAgain = true;
+      }
+      else{
+        s = "empty";
+      }
+      System.out.println("You said: " + s);
+    }
+
+  }
+
+  voce.SpeechInterface.destroy();
+
+}
+```
+
+I am using the VOCE API to get the users voice. I have a continuous While loop which gets the user input. The input is then used to start the game, pause, resume and reset the game. I have boolean variables that are used to draw the menus when true.
+
+#### Libraries
+These are the libraries we used for the project above.
+
+![](https://github.com/nakster/gif/blob/master/libraries.PNG)
+
 ### Conclusions & Recommendations
 
 ### Team Members
