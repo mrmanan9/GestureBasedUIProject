@@ -1,4 +1,4 @@
-### 4th Year GESTURE BASED UI DEVELOPMENT PROJECT 
+### 4th YEAR GESTURE BASED UI DEVELOPMENT PROJECT 
 </br></br>
 
 <p align="center"> 
@@ -59,6 +59,8 @@ These are used to recognise if the user says one of them to start and pause and 
 <img src="https://media.giphy.com/media/fZVZ8bSkAlX5jbceiV/giphy.gif"/>
 </p>
 
+#### Voice Commands 
+
 | Command        | For?                    |
 | -------------  |:-----------------------:|
 | Start          | To starte the game      |
@@ -86,6 +88,26 @@ We decided to use the rotate gestures for left and right movement. We initially 
 
 ### Hardware used in creating the application
 
+#### Myo Armband 
+
+The Hardware we are using for this project is Myo Armband. "The Myo armband lets you use the electrical activity in your muscles to wirelessly control your computer, phone, and other favourite digital technologies. ... The Myo armband. One Standard Micro-USB Cable for charging your Myo armband". 
+
+<p align="center"> 
+<img src="https://www.robotshop.com/media/catalog/product/cache/image/380x380/9df78eab33525d08d6e5fb8d27136e95/m/y/myo-gesture-control-armband-black-5.jpg"/>
+</p>
+
+Download
+- We need to download the [SDK](https://support.getmyo.com/hc/en-us/articles/202657596-Getting-starting-with-Myo-on-Windows) 
+- We also need to dowload the [Connector](https://support.getmyo.com/hc/en-us/articles/360018409792) 
+- We need to download the following SDK and Connector to be able to use the Myo Armband and its gestures.
+- Downloads are available for Windows and MAC and Android.
+
+#### Microphone
+
+"voice recognition is a computer software program or hardware device with the ability to decode the human voice". We use the microphone to detect voice to allow the user to be able to control the game. 
+
+![](https://s26913.pcdn.co/wp-content/uploads/AdobeStock_79969378-1024x440.jpeg)
+
 ### Architecture for the solution
 
 ### Conclusions & Recommendations
@@ -93,3 +115,8 @@ We decided to use the rotate gestures for left and right movement. We initially 
 ### Team Members
 Naqi Ahmad
 Nuzhafiq Iqbal 
+
+### References 
+[Getting Started With Your Myo Armband](https://support.getmyo.com/hc/en-us/articles/203398347-Getting-started-with-your-Myo-armband) </br>
+[Installation](https://support.getmyo.com/hc/en-us/articles/202657596-Getting-starting-with-Myo-on-Windows) </br>
+[Voice Recognition](https://www.computerhope.com/jargon/v/voicreco.htm)
