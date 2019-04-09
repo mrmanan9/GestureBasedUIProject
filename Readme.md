@@ -123,6 +123,39 @@ This is the structure of our game. We have different packages for Enemies, Block
 #### UML Diagram
 ![](https://github.com/nakster/gif/blob/master/uml.PNG)
 
+#### Lua Script 
+<p align="center"> 
+<img src="http://www.lua.org/images/luaa.gif"/>
+</p>
+
+We used the LUA Scripting to connect our Java Game to Myo Armband. 
+
+I am using LUA script with the java space Invaders to connect the Myo with the game. The Script allows The gestures to map to the keys on the keyboard.
+
+- For example 
+
+```Lua
+  function toshoot()
+    myo.keyboard("space","down")
+    myo.vibrate("short")
+  end
+
+```
+
+In the script we have a function that when called presses the spacebar key. We also have a method that is used to reset, So When the key is released the spacebar is also released.
+
+- For example 
+
+```Lua
+
+  function resetShoot()
+    myo.keyboard("space","up")
+  end
+
+```
+
+The same applies to Rotate Left and Right the functions map the gestures to the keyboard keys. So When the user uses the rotate left gesture the lua script maps that to the left key and presses it down. 
+
 ### Conclusions & Recommendations
 
 ### Team Members
