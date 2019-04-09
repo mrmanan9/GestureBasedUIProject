@@ -72,6 +72,18 @@ These are used to recognise if the user says one of them to start and pause and 
 
 So we had a lot of choice in this project and a lot of freedom and we had to work in pairs 
 
+![](https://image.slidesharecdn.com/bc61a10e-0b68-4c13-b562-6033eb4122c6-160222191323/95/presentation-1-5-638.jpg?cb=1456168437)
+
+When we were given the Myo we had to research what gestures to use and we found that the Myo Armband has five built in gestures shown above. We decide to use the following:
+
+![](https://support.getmyo.com/hc/en-us/article_attachments/201853983/make-fist.svg)
+</br>
+We decide to use the fist gesture to shoot. We began with  using the finger spread gesture for shooting but then decided to use fist.   This was done because the finger spread gesture was not as responsive as the fist gesture and it was more accurate to shoot with the     fist.
+
+![](https://support.getmyo.com/hc/en-us/article_attachments/201806463/GestureOverlay_PresentationsFist.png)
+
+We decided to use the rotate gestures for left and right movement. We initially had the wave-in and wave-out for moving right and left. Later on we found out that it was a bit tiresome and not as effcient so we decided to change this to the rotate. This does not require as much movement and stamina. 
+
 ### Team Members
 Naqi Ahmad
 Nuzhafiq Iqbal 
