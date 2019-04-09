@@ -49,17 +49,23 @@ When you say start the game will start playing. We have a set of strings that ar
 
 ```shell
 
-public <String> = [start | reset | stop | continue | nothing];
+public <String> = [start | reset | stop | continue ];
 
 ```
 
-These are used to recognise if the user says one of them to start and pause and reset.
+These are used to recognise if the user says one of them to start and pause and reset. 
 
 <p align="center"> 
-<img src="https://github.com/nakster/gif/blob/master/start.PNG"/>
+<img src="https://media.giphy.com/media/fZVZ8bSkAlX5jbceiV/giphy.gif"/>
 </p>
 
-### Pause/Resume 
+| Command        | For?                    |
+| -------------  |:-----------------------:|
+| Start          | To starte the game      |
+| Reset          | To Start the game Again | 
+| Stop           | Pauses the game         | 
+| Continue       | If paused then resumes  |
+
 
 ### Gestures identified as appropriate for this application
 
