@@ -222,7 +222,49 @@ These are the libraries we used for the project above.
 
 [![Watch the video](https://thumbs.gfycat.com/FabulousRigidGrizzlybear-small.gif)](https://youtu.be/-0-hJeIND9Q)
 
+
+### How To Run 
+
+### Prerequisites
+
+To run the Game Install the Following to your Machine</br>
+
+```bash
+For Windows Install Connector and SDK From https://support.getmyo.com/hc/en-us/articles/360018409792
+```
+```bash
+Install eclipse and Java JDK and SDK
+```
+
+### How to Run
+
+```bash
+Git clone https://github.com/nakster/GestureBasedUIProject.git
+
+Change Into the Directory
+cd "Location\GestureBasedUIProject"
+
+Change into the jar folder
+cd Jar
+
+Then run the bash file by double clicking it
+
+```
+
 ### Conclusions & Recommendations
+
+We are happy with our finished project. We set our objectives which were to create an application in java and implement the Myo Gestures. We also added the voice recognition for extra functionality and making it a bit more gesture based. Our aim was to craete a game that can be enjoyed by anyone who's willing to try it. And I believe our simple UI achieves that.
+
+#### Challenges
+
+- It was our first time working with gesture based technology and it was more of a challenge getting everything working. 
+- The Myo Armband itself was very buggy and glitchy. 
+- Lack of content online 
+- There wasn't enough information online that explained how to connect the Myo
+- Myo has quite noticeable latency on recognising gestures
+- We had orginally though of a different project but we decided to change it to a java game, as we encoutered too many problems.
+
+Overall The project was really enjoyable and interesting and we learnt alot about the technology we got to use. The armband and the voice recognition api allowed us to learn alot about gestures and how they are made possible. When we started this project we hardly knew anything about programming gestures with myo or voice recognition apis. The project was a good insight into gesture based technlogy. The myo may not be the best device in the business but for a small project Myo demonstrates and gives us a insight into newer types of technology. It took a lot of work and time but in the end, it was very rewarding to get everything working.
 
 ### Team Members
 Naqi Ahmad
