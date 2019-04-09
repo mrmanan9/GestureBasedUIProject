@@ -104,11 +104,24 @@ Download
 
 #### Microphone
 
-"voice recognition is a computer software program or hardware device with the ability to decode the human voice". We use the microphone to detect voice to allow the user to be able to control the game. 
+"voice recognition is a computer software program or hardware device with the ability to decode the human voice". We use the microphone to detect voice to allow the user to be able to control the menu aspects of the game. 
 
 ![](https://s26913.pcdn.co/wp-content/uploads/AdobeStock_79969378-1024x440.jpeg)
 
-### Architecture for the solution
+### Architecture
+
+This is the Architecture of our game.
+
+![](https://github.com/nakster/gif/blob/master/arch.PNG)
+
+#### Java 
+
+This is the structure of our game. We have different packages for Enemies, Blocks and Bullets And the Runner with the jframe in the ie.gmit.sw package.
+
+![](https://github.com/nakster/gif/blob/master/javaarch.png)
+
+#### UML Diagram
+![](https://github.com/nakster/gif/blob/master/uml.PNG)
 
 ### Conclusions & Recommendations
 
@@ -120,3 +133,4 @@ Nuzhafiq Iqbal
 [Getting Started With Your Myo Armband](https://support.getmyo.com/hc/en-us/articles/203398347-Getting-started-with-your-Myo-armband) </br>
 [Installation](https://support.getmyo.com/hc/en-us/articles/202657596-Getting-starting-with-Myo-on-Windows) </br>
 [Voice Recognition](https://www.computerhope.com/jargon/v/voicreco.htm)
+
