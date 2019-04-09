@@ -236,8 +236,6 @@ For Windows Install Connector and SDK From https://support.getmyo.com/hc/en-us/a
 Install eclipse and Java JDK and SDK
 ```
 
-### How to Run
-
 ```bash
 Git clone https://github.com/nakster/GestureBasedUIProject.git
 
