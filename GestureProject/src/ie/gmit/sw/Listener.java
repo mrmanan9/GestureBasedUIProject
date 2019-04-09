@@ -121,7 +121,7 @@ public class Listener extends JPanel implements KeyListener {
         comp2D.setFont(fontM);
         comp2D.drawString("GAME OVER",120,320);
         comp2D.setFont(fontS);
-        comp2D.drawString("Say Hello To Start",130,400);
+        comp2D.drawString("Say Reset To Start Again",130,400);
     }
 
     // called to see if game is still in play
