@@ -222,9 +222,14 @@ These are the libraries we used for the project above.
 ![](https://github.com/nakster/gif/blob/master/libraries.PNG)
 
 
-#### Demonstration
+### Demonstration
 
-[![Watch the video](https://thumbs.gfycat.com/FabulousRigidGrizzlybear-small.gif)](https://youtu.be/-0-hJeIND9Q)
+[![Watch the video](https://www.seoclerk.com/files/user/community/000/492/267/01_idem_na_youtube.1536685564.gif)](https://youtu.be/-0-hJeIND9Q)
+
+#### Voice Commands Demo 
+
+[![Watch the video](https://bestgifs.makeagif.com/wp-content/uploads/2016/05/gif-from-youtube.gif)](https://youtu.be/MSEFfuP_yU8)
+
 
 
 ### How To Run 
