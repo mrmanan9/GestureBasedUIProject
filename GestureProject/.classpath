@@ -6,6 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/naqi/Desktop/damien/GestureBasedUIProject/Jar/javaGame_lib/voce.jar"/>
+	<classpathentry kind="lib" path="C:/Users/naqi/Desktop/TestDamien/GestureBasedUIProject/Jar/javaGame_lib/voce.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
