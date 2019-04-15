@@ -253,6 +253,12 @@ Then run the bash file by double clicking it
 
 ```
 
+### Tutorial 
+
+<p align="center"> 
+<img src="https://media.giphy.com/media/ddBBYrGbnAFQepFz5f/giphy.gif"/>
+</p>
+
 ### Conclusions & Recommendations
 
 We are happy with our finished project. We set our objectives which were to create an application in java and implement the Myo Gestures. We also added the voice recognition for extra functionality and making it a bit more gesture based. Our aim was to craete a game that can be enjoyed by anyone who's willing to try it. And I believe our simple UI achieves that.
